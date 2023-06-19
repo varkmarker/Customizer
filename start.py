@@ -16,13 +16,13 @@ else:
 
         try:
             if choices == "1":
-                main.Base.icons()
+                main.Base.add_icons_dir()
                 choice()
             elif choices == "2":
-                main.Base.software()
+                main.Base.add_software()
                 choice()
             elif choices == "3":
-                main.Base.update()
+                main.Base.add_update_alias()
                 choice()
             elif choices == "4":
                 main.Base.all()

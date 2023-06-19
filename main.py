@@ -123,9 +123,9 @@ for root, dirs, files in os.walk(root_dir):
     if "Pictures" in dirs:
         # Get the absolute path of the "Pictures" directory
         pictures_dir = os.path.join(root, "Pictures")
-    if ".bashrc" in files:
+    if ".bashrc" in files or ".zshrc" in files:
 
-        bashrc_path = os.path.join(root, ".bashrc")
+        bashrc_path = os.path.join(root, ".bashrc" or ".zshrc")
 
 
 class Base:
@@ -202,13 +202,6 @@ class Base:
         print("sof")
 
     def add_update_alias():
-        root_dir = "/home"
-        for root, dirs, files in os.walk(root_dir):
-        # Check if any directory contains "Pictures" in its name
-        
-            if ".bashrc" in files:
-
-                bashrc_path = os.path.join(root, ".bashrc")
         time.sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),

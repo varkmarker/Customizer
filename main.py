@@ -123,9 +123,14 @@ for root, dirs, files in os.walk(root_dir):
     if "Pictures" in dirs:
         # Get the absolute path of the "Pictures" directory
         pictures_dir = os.path.join(root, "Pictures")
-    if ".bashrc" in files or ".zshrc" in files:
+        print("Pictures directory:", pictures_dir)
 
-        bashrc_path = os.path.join(root, ".bashrc" or ".zshrc")
+    # Check if ".bashrc" or ".zshrc" files exist in the current directory
+    if ".bashrc" in files:
+        bashrc_path = os.path.join(root, ".bashrc")
+
+    elif ".zshrc" in files:
+        bashrc_path = os.path.join(root, ".zshrc")
 
 
 class Base:
@@ -237,12 +242,20 @@ class Base:
                 file.write("" + alias_command)
             time.sleep(0.5)
             Colors.blue(f"[+] Alias added to {bashrc_path}")
-            print(colr().hex("#0000ff","[+]"),colr().hex("#ff0000","up"),colr().hex("#0000ff",": is the run command"))
+            print(
+                colr().hex("#0000ff", "[+]"),
+                colr().hex("#ff0000", "up"),
+                colr().hex("#0000ff", ": is the run command"),
+            )
 
         elif one_string in file_contents:
             time.sleep(0.5)
             Colors.blue(f"[+] Alias added to {bashrc_path}")
-            print(colr().hex("#0000ff","[+]"),colr().hex("#ff0000","up"),colr().hex("#0000ff",": is the run command"))
+            print(
+                colr().hex("#0000ff", "[+]"),
+                colr().hex("#ff0000", "up"),
+                colr().hex("#0000ff", ": is the run command"),
+            )
         else:
             with open(bashrc_path, "a") as file:
                 file.write(
@@ -255,12 +268,16 @@ class Base:
                 )
             time.sleep(0.5)
             Colors.blue(f"[+] Alias added to {bashrc_path}")
-            print(colr().hex("#0000ff","[+]"),colr().hex("#ff0000","up"),colr().hex("#0000ff",": is the run command")) 
+            print(
+                colr().hex("#0000ff", "[+]"),
+                colr().hex("#ff0000", "up"),
+                colr().hex("#0000ff", ": is the run command"),
+            )
 
     def all():
         # call add update alias in the .bashrc file
         Base.add_update_alias()
         # call software downloading function
         Base.add_software()
-        
+
         Base.add_icons_dir

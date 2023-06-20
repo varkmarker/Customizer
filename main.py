@@ -123,7 +123,6 @@ for root, dirs, files in os.walk(root_dir):
     if "Pictures" in dirs:
         # Get the absolute path of the "Pictures" directory
         pictures_dir = os.path.join(root, "Pictures")
-        print("Pictures directory:", pictures_dir)
 
     # Check if ".bashrc" or ".zshrc" files exist in the current directory
     if ".bashrc" in files:
@@ -186,21 +185,24 @@ class Base:
         Colors.red("")
         os.system(f" sudo cp -v {background_img} {pictures_dir}")
         time.sleep(0.5)
-        print(
-            colr().hex("#0000ff", "\n[+]", rgb_mode=True),
-            colr().hex("#6666ff", " Moving Grub Images\n", rgb_mode=True),
-        )
-        time.sleep(0.5)
-        Colors.red("")
-        os.system(f"sudo cp -v {grub_img} {boot_folder}")
-        time.sleep(0.5)
-        print(
-            colr().hex("#0000ff", "\n[+]", rgb_mode=True),
-            colr().hex("#6666ff", " Updating grub\n", rgb_mode=True),
-        )
-        time.sleep(0.5)
-        Colors.red("")
-        os.system("update-grub")
+
+    # def add_grub_image()
+    #     time.sleep(0.5)
+    #     print(
+    #         colr().hex("#0000ff", "\n[+]", rgb_mode=True),
+    #         colr().hex("#6666ff", " Moving Grub Images\n", rgb_mode=True),
+    #     )
+    #     time.sleep(0.5)
+    #     Colors.red("")
+    #     os.system(f"sudo cp -v {grub_img} {boot_folder}")
+    #     time.sleep(0.5)
+    #     print(
+    #         colr().hex("#0000ff", "\n[+]", rgb_mode=True),
+    #         colr().hex("#6666ff", " Updating grub\n", rgb_mode=True),
+    #     )
+    #     time.sleep(0.5)
+    #     Colors.red("")
+    #     os.system("update-grub")
 
     def add_software():
 
@@ -275,9 +277,9 @@ class Base:
             )
 
     def all():
-        # call add update alias in the .bashrc file
+        # call add update alias in the .bashrc or .zshrc file
         Base.add_update_alias()
         # call software downloading function
         Base.add_software()
-
+        # call add icons to themes and icons folder
         Base.add_icons_dir

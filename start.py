@@ -9,7 +9,7 @@ else:
 
     def choice():
         main.Colors.red("\n Welcome to customize tool by varkmarker \n")
-        main.Colors.sky_blue(" \n [1] Icons     [2] Software")
+        main.Colors.sky_blue(" \n [1] Icons     ")
         main.Colors.sky_blue(" [3] Update.py [4] All")
         main.Colors.sky_blue(" [5] Exit")
         choices = input(colr().hex("#00ccff", "\n > ", rgb_mode=True))

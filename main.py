@@ -247,7 +247,7 @@ class Base:
             print(
                 colr().hex("#0000ff", "[+]"),
                 colr().hex("#ff0000", "up"),
-                colr().hex("#0000ff", ": is the run command"),
+                colr().hex("#0000ff", ": is the command for run the script"),
             )
 
         elif one_string in file_contents:
@@ -256,7 +256,7 @@ class Base:
             print(
                 colr().hex("#0000ff", "[+]"),
                 colr().hex("#ff0000", "up"),
-                colr().hex("#0000ff", ": is the run command"),
+                colr().hex("#0000ff", ": is the command for run the script"),
             )
         else:
             with open(bashrc_path, "a") as file:
@@ -273,7 +273,7 @@ class Base:
             print(
                 colr().hex("#0000ff", "[+]"),
                 colr().hex("#ff0000", "up"),
-                colr().hex("#0000ff", ": is the run command"),
+                colr().hex("#0000ff", ": is the command for run the script"),
             )
 
     def all():

@@ -276,10 +276,32 @@ class Base:
     class Software:
         def tools():
             sleep(0.5)
-            Colors.blue(f"[+] Installing basic ")
+            Colors.blue(f"\n[+] Installing basic ")
             #Updating , upgrading the system and installing some software
+            Colors.red("")
             os.system("sudo apt-get update-y && sudo apt-get full-upgrade && sudo apt-get install -y tlp timeshift vlc filezilla neofetch htop net-tools wireless-tools thunderbird nano vim flatpak build-essential cmake p7zip p7zip-full unrar-free unzip")
-    
+            Colors.blue("\n[+] Installation completed")
+    def sudo_su_error():
+        def sudo_su_solution():
+            sleep(0.5)
+            print("\n")
+            username = input(colr().hex("#0000ff","Enter your user name you want to add the sudo su : " ,rgb_mode=True))
+            sleep(0.5)
+            os.system(f"sudo usermod -a -G sudo {username} ")
+            Colors.sky_blue("\n                       User Result\n")
+            os.system(f"groups {username} ")
+            print(colr().hex("#0000ff","# Check the user result in the above that contain sudo word \n# If in there try",rgb_mode=True),colr().hex("#ff0000","sudo su",rgb_mode=True),colr().hex("#0000ff","\n# if you get any error from the",rgb_mode=True),colr().hex("#ff0000","sudo su",rgb_mode=True),colr().hex("#0000ff","command reboot or restart your system then try it \n# It will work ",rgb_mode=True))
+
+        sleep(0.5)
+        Colors.blue("\n[+] sudo su error solutions")
+        Colors.red("Error: \n\n   # <your username> is not in the sudoers file.This incident will be reported\n")
+        choice = input(colr().hex("#0000ff","If the same error y or n : ",rgb_mode=True))
+        choice = choice.lower()
+        if choice == "y" or choice == "yes":
+            sudo_su_solution()
+        elif choice == "n" or choice == "no":
+            Colors.blue("\nOk do it later")
+
 
     def all():
         # call add update alias in the .bashrc or .zshrc file

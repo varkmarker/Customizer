@@ -1,0 +1,1 @@
+user : user adm cdrom sudo dip plugdev lpadmin sambashare

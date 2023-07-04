@@ -1,6 +1,6 @@
 from colr import Colr as colr
 import os
-import time
+from time import sleep
 from pathlib import Path
 
 
@@ -68,35 +68,35 @@ class Operators:
     # Normal exit
     def exit():
         os.system("exit")
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("\n You are exited \n")
 
     # Author information
     def author():
         Colors.sky_blue("\n                     AUTHOR")
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.orange(
             " \n If this script saves you time. You can give a star on GitHub"
         )
         Colors.orange(
             f" \n If you have any suggestions about this tool you can contact me on Twitter."
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.orange(" \n Twitter link: https://twitter.com/varkmarker")
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.light_blue(" \n AUTHOR: VARKMARKER \n")
-        time.sleep(0.5)
+        sleep(0.5)
 
     # Invalid error message
     def case_default():
         print(
             colr().hex(
                 "#00ffff",
-                """\n                 (__) 
-                 (oo) 
-           /------\/ 
-          / |    ||   
-         *  /\---/\ 
+                """\n                 (__)
+                 (oo)
+           /------\/
+          / |    ||
+         *  /\---/\
             ~~   ~~""",
             ),
         )
@@ -134,89 +134,87 @@ for root, dirs, files in os.walk(root_dir):
 
 class Base:
     def add_icons_dir():
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Extrating McMojave-cursors\n", rgb_mode=True),
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("")
         os.system(f"tar -xvf {path1} ")
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Extrating Mkos-Big-Sur-icon\n", rgb_mode=True),
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("")
         os.system(f"tar -xvf {path2}")
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Extrating WhiteSur-Dark\n", rgb_mode=True),
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("")
         os.system(f"tar -xvf {path3}")
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Icons\n", rgb_mode=True),
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("")
         os.system(
             f" sudo mv -v McMojave-cursors Mkos-Big-Sur-Panel-white Mkos-Big-Sur Mkos-Big-Sur-Night {movepath1}"
         )
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving UserTheme\n", rgb_mode=True),
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("")
         os.system(f"sudo mv -v WhiteSur-Dark {movepath2}")
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Background Images\n", rgb_mode=True),
         )
-        time.sleep(0.5)
+        sleep(0.5)
         Colors.red("")
         os.system(f" sudo cp -v {background_img} {pictures_dir}")
-        time.sleep(0.5)
+        sleep(0.5)
 
     # def add_grub_image()
-    #     time.sleep(0.5)
+    #     sleep(0.5)
     #     print(
     #         colr().hex("#0000ff", "\n[+]", rgb_mode=True),
     #         colr().hex("#6666ff", " Moving Grub Images\n", rgb_mode=True),
     #     )
-    #     time.sleep(0.5)
+    #     sleep(0.5)
     #     Colors.red("")
     #     os.system(f"sudo cp -v {grub_img} {boot_folder}")
-    #     time.sleep(0.5)
+    #     sleep(0.5)
     #     print(
     #         colr().hex("#0000ff", "\n[+]", rgb_mode=True),
     #         colr().hex("#6666ff", " Updating grub\n", rgb_mode=True),
     #     )
-    #     time.sleep(0.5)
+    #     sleep(0.5)
     #     Colors.red("")
     #     os.system("update-grub")
 
-    def add_software():
 
-        print("sof")
 
     def add_update_alias():
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Update.py\n", rgb_mode=True),
         )
         Colors.red("")
         os.system("sudo cp -rv items/update /usr/bin/")
-        time.sleep(0.5)
+        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Adding line\n", rgb_mode=True),
@@ -242,7 +240,7 @@ class Base:
                 )
             with open(bashrc_path, "w") as file:
                 file.write("" + alias_command)
-            time.sleep(0.5)
+            sleep(0.5)
             Colors.blue(f"[+] Alias added to {bashrc_path}")
             print(
                 colr().hex("#0000ff", "[+]"),
@@ -251,7 +249,7 @@ class Base:
             )
 
         elif one_string in file_contents:
-            time.sleep(0.5)
+            sleep(0.5)
             Colors.blue(f"[+] Alias added to {bashrc_path}")
             print(
                 colr().hex("#0000ff", "[+]"),
@@ -268,18 +266,23 @@ class Base:
                         ]
                     )
                 )
-            time.sleep(0.5)
+            sleep(0.5)
             Colors.blue(f"[+] Alias added to {bashrc_path}")
             print(
                 colr().hex("#0000ff", "[+]"),
                 colr().hex("#ff0000", "up"),
                 colr().hex("#0000ff", ": is the command for run the script"),
             )
+    class Software:
+        def tools():
+            sleep(0.5)
+            Colors.blue(f"[+] Installing basic ")
+            #Updating , upgrading the system and installing some software
+            os.system("sudo apt-get update-y && sudo apt-get full-upgrade && sudo apt-get install -y tlp timeshift vlc filezilla neofetch htop net-tools wireless-tools thunderbird nano vim flatpak build-essential cmake p7zip p7zip-full unrar-free unzip")
+    
 
     def all():
         # call add update alias in the .bashrc or .zshrc file
         Base.add_update_alias()
-        # call software downloading function
-        Base.add_software()
         # call add icons to themes and icons folder
         Base.add_icons_dir

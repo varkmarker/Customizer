@@ -9,8 +9,8 @@ else:
 
     def choice():
         main.Colors.red("\n Welcome to customize tool by varkmarker \n")
-        main.Colors.sky_blue(" \n [1] Icons     ")
-        main.Colors.sky_blue(" [3] Update.py [4] All")
+        main.Colors.sky_blue(" \n [1] Icons    [2] Update alias ")
+        main.Colors.sky_blue(" [3] Basic Software [4] All")
         main.Colors.sky_blue(" [5] Exit")
         choices = input(colr().hex("#00ccff", "\n > ", rgb_mode=True))
 
@@ -19,11 +19,11 @@ else:
                 main.Base.add_icons_dir()
                 choice()
             elif choices == "2":
-                main.Base.add_software()
-                choice()
-            elif choices == "3":
                 main.Base.add_update_alias()
                 choice()
+            elif choices == "3":
+                main.Base.Software.tools()
+                choice
             elif choices == "4":
                 main.Base.all()
                 main.Operators.exit_author()

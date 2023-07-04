@@ -288,6 +288,7 @@ class Base:
             username = input(colr().hex("#0000ff","Enter your user name you want to add the sudo su : " ,rgb_mode=True))
             sleep(0.5)
             os.system(f"sudo usermod -a -G sudo {username} ")
+            sleep(0.5)
             Colors.sky_blue("\n                       User Result\n")
             os.system(f"groups {username} ")
             print(colr().hex("#0000ff","# Check the user result in the above that contain sudo word \n# If in there try",rgb_mode=True),colr().hex("#ff0000","sudo su",rgb_mode=True),colr().hex("#0000ff","\n# if you get any error from the",rgb_mode=True),colr().hex("#ff0000","sudo su",rgb_mode=True),colr().hex("#0000ff","command reboot or restart your system then try it \n# It will work ",rgb_mode=True))

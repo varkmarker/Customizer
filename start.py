@@ -12,7 +12,7 @@ else:
         main.Colors.sky_blue(" \n [1] Icons                [2] Update alias ")
         main.Colors.sky_blue(" [3] Basic Software       [4] Sudo su error")
         main.Colors.sky_blue(" [5] icons + update alias [6] Exit")
-        choices = input(colr().hex("#00ccff", "\n > ", rgb_mode=True))
+        choices = input(colr().hex("#00ccff", "\n  > ", rgb_mode=True))
 
         try:
             if choices == "1":

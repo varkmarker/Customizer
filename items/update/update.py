@@ -69,8 +69,9 @@ if os.geteuid() != 0:
 else:
     Colors.orange("\n UPDATE AND UPGRADE = y")
     Colors.orange("\n UPGRADE = n")
-    Colors.orange("\n ONLY TAKE LOWER CASE ")
+    Colors.orange("\n EXIT = e")
     choice = input(colr().hex("#ff8e35", "\n > ", rgb_mode=True))
+    choice = choice.lower()
     if choice == "y":
 
         def update():
@@ -105,5 +106,7 @@ else:
             Colors.blue("\n  [+] UPGRADE FINISHED")
 
         upgrade()
+    elif choice == "e":
+        Colors.red(" \n Exited \n")
     else:
         Colors.red(" \n You press the wrong key \n")

@@ -11,7 +11,10 @@ else:
         main.Colors.red("\n Welcome to customize tool by varkmarker \n")
         main.Colors.sky_blue(" \n [1] Icons                [2] Update alias ")
         main.Colors.sky_blue(" [3] Basic Software       [4] Sudo su error")
-        main.Colors.sky_blue(" [5] icons + update alias [6] Exit")
+        main.Colors.sky_blue(
+            " [5] icons + update alias [6] Software (eg : google chrome)"
+        )
+        main.Colors.sky_blue(" [7] Exit")
         choices = input(colr().hex("#00ccff", "\n  > ", rgb_mode=True))
 
         try:
@@ -25,12 +28,13 @@ else:
                 main.Base.Software.tools()
                 choice()
             elif choices == "4":
-                main.Base.sudo_su_error()
+                main.Base.Error.sudo_su_error()
                 choice()
             elif choices == "5":
                 main.Base.all()
-                main.Operators.exit_author()
             elif choices == "6":
+                main.Base.Software.gui_software()
+            elif choices == "7":
                 main.Operators.exit_author()
             else:
                 main.Operators.case_default()

@@ -95,8 +95,7 @@ class Operators:
                  (oo)
            /------\/
           / |    ||
-         *  /\---/\
-            ~~   ~~""",
+         *  /\---/\ \n            ~~   ~~   """,
             ),
         )
 
@@ -447,53 +446,80 @@ class Base:
             )
             Colors.blue("\n[+] Installation completed")
 
-    def sudo_su_error():
-        def sudo_su_solution():
-            sleep(0.5)
-            print("\n")
-            username = input(
-                colr().hex(
-                    "#0000ff",
-                    "Enter your user name you want to add the sudo permission : ",
-                    rgb_mode=True,
-                )
-            )
-            sleep(0.5)
-            os.system(f"sudo usermod -a -G sudo {username} ")
-            sleep(0.5)
-            Colors.sky_blue("\n                       User Result\n")
-            os.system(f"groups {username} ")
-            print(
-                colr().hex(
-                    "#0000ff",
-                    "# Check the user result in the above that contain sudo word \n# If in there try",
-                    rgb_mode=True,
-                ),
-                colr().hex("#ff0000", "sudo su", rgb_mode=True),
-                colr().hex(
-                    "#0000ff", "\n# if you get any error from the", rgb_mode=True
-                ),
-                colr().hex("#ff0000", "sudo su", rgb_mode=True),
-                colr().hex(
-                    "#0000ff",
-                    "command reboot or restart your system then try it \n# It will work ",
-                    rgb_mode=True,
-                ),
-            )
+        def gui_software():
+            gc_url = "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+            vs_url = "https://az764295.vo.msecnd.net/stable/74f6148eb9ea00507ec113ec51c489d6ffb4b771/code_1.80.1-1689183569_amd64.deb"
+            Colors.sky_blue("\n  SOFTWARE INSTALLATION\n")
+            Colors.blue("  [1] Chrome  [2] vscode")
+            choice = input(colr().hex("#0000ff", "\n   >", rgb_mode=True))
+            choice = choice.lower()
+            if choice == "1":
+                sleep(0.5)
+                Colors.blue(" \n[+] INSTALLING GOOGLE_CHROME")
+                Colors.red("")
+                os.system(f"sudo wget -O google_chrome.deb {gc_url}")
+                # get the absolute path of the google_chrome.deb file
+                # gc_path = os.path.abspath("google_chrome.deb")
+                os.system(f"sudo apt-get install ./google_chrome.deb")
+            elif choice == "2":
+                sleep(0.5)
+                Colors.blue(" \n[+] INSTALLING VSCODE")
+                Colors.red("")
+                os.system(f" sudo wget -O vscode.deb {vs_url}")
+                # get the absolute path of the vscode.deb file
+                # vc_path = os.path.abspath("vscode.deb")
+                os.system(f"sudo apt-get install ./vscode.deb")
+            else:
+                Operators.case_default()
 
-        sleep(0.5)
-        Colors.blue("\n[+] sudo su error solutions")
-        Colors.red(
-            "Error: \n\n   # <your username> is not in the sudoers file.This incident will be reported\n"
-        )
-        choice = input(
-            colr().hex("#0000ff", "If the same error y or n : ", rgb_mode=True)
-        )
-        choice = choice.lower()
-        if choice == "y" or choice == "yes":
-            sudo_su_solution()
-        elif choice == "n" or choice == "no":
-            Colors.blue("\nOk do it later")
+    class Error:
+        def sudo_su_error():
+            def sudo_su_solution():
+                sleep(0.5)
+                print("\n")
+                username = input(
+                    colr().hex(
+                        "#0000ff",
+                        "Enter your user name you want to add the sudo permission : ",
+                        rgb_mode=True,
+                    )
+                )
+                sleep(0.5)
+                os.system(f"sudo usermod -a -G sudo {username} ")
+                sleep(0.5)
+                Colors.sky_blue("\n                       User Result\n")
+                os.system(f"groups {username} ")
+                print(
+                    colr().hex(
+                        "#0000ff",
+                        "# Check the user result in the above that contain sudo word \n# If in there try",
+                        rgb_mode=True,
+                    ),
+                    colr().hex("#ff0000", "sudo su", rgb_mode=True),
+                    colr().hex(
+                        "#0000ff", "\n# if you get any error from the", rgb_mode=True
+                    ),
+                    colr().hex("#ff0000", "sudo su", rgb_mode=True),
+                    colr().hex(
+                        "#0000ff",
+                        "command reboot or restart your system then try it \n# It will work ",
+                        rgb_mode=True,
+                    ),
+                )
+
+            sleep(0.5)
+            Colors.blue("\n[+] sudo su error solutions")
+            Colors.red(
+                "Error: \n\n   # <your username> is not in the sudoers file.This incident will be reported\n"
+            )
+            choice = input(
+                colr().hex("#0000ff", "If the same error y or n : ", rgb_mode=True)
+            )
+            choice = choice.lower()
+            if choice == "y" or choice == "yes":
+                sudo_su_solution()
+            elif choice == "n" or choice == "no":
+                Colors.blue("\nOk do it later")
 
     def all():
         # call add update alias in the .bashrc or .zshrc file

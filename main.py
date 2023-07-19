@@ -181,7 +181,7 @@ class Base:
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Additional Icons\n", rgb_mode=True),
         )
-        os.system(f"sudo cp -v {app_icons} /usr/share/")
+        os.system(f"sudo cp -rv {app_icons} /usr/share/")
 
     # def add_grub_image()
     #     sleep(0.5)

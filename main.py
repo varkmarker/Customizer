@@ -442,7 +442,7 @@ class Base:
             # Updating , upgrading the system and installing some software
             Colors.red("")
             os.system(
-                "sudo apt-get update-y && sudo apt-get full-upgrade && sudo apt-get install -y tlp timeshift ftp vlc filezilla neofetch htop net-tools wireless-tools thunderbird nano vim flatpak build-essential cmake p7zip p7zip-full unrar-free unzip"
+                "sudo apt-get update -y && sudo apt-get full-upgrade && sudo apt-get install -y tlp timeshift ftp vlc filezilla neofetch htop net-tools wireless-tools thunderbird nano vim flatpak build-essential cmake p7zip p7zip-full unrar-free unzip"
             )
             Colors.blue("\n[+] Installation completed")
 

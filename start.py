@@ -31,7 +31,7 @@ else:
                 main.Base.Error.sudo_su_error()
                 choice()
             elif choices == "5":
-                main.Base.all()
+                main.Base.add_icons_update_alias()
             elif choices == "6":
                 main.Base.Software.gui_software()
             elif choices == "7":

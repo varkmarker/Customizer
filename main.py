@@ -528,8 +528,9 @@ class Base:
             elif choice == "n" or choice == "no":
                 Colors.blue("\nOk do it later")
 
-    def all():
+    def add_icons_update_alias():
+        # call add icons to themes and icons folder
+        Base.add_icons_dir()
+
         # call add update alias in the .bashrc or .zshrc file
         Base.add_update_alias()
-        # call add icons to themes and icons folder
-        Base.add_icons_dir

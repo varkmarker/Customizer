@@ -157,9 +157,7 @@ class Base:
         )
         sleep(0.5)
         Colors.red("")
-        os.system(
-            f" sudo mv -v McMojave-cursors Mkos-Big-Sur* {movepath1}"
-        )
+        os.system(f" sudo mv -v McMojave-cursors Mkos-Big-Sur* {movepath1}")
         sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
@@ -184,6 +182,7 @@ class Base:
         Colors.red("")
         os.system(f"sudo cp -rv {app_icons} /usr/share/")
         sleep(0.5)
+
     # def add_grub_image()
     #     sleep(0.5)
     #     print(
@@ -357,8 +356,15 @@ class Base:
                 # Set the root directory where you want to start searching
                 root_dir = "/home"
                 for root, dirs, files in os.walk(root_dir):
-                    # Check if ".bashrc"  files exist in the current directory
-                    if ".bashrc" in files:
+                    # Check if any directory contains "Pictures" in its name
+                    if "Pictures" in dirs:
+                        # Get the absolute path of the "Pictures" directory
+                        pictures_dir = os.path.join(root, "Pictures")
+
+                    # Check if ".bashrc" or ".zshrc" files exist in the current directory
+                    if ".zshrc" in files:
+                        bashrc_path = os.path.join(root, ".zshrc")
+                    elif ".bashrc" in files:
                         bashrc_path = os.path.join(root, ".bashrc")
                 one_string = "alias up='sudo /usr/bin/update/update.py'"
                 second_string = "#alias up='sudo /usr/bin/update/update.py'"
@@ -380,7 +386,7 @@ class Base:
                     with open(bashrc_path, "w") as file:
                         file.write("" + alias_command)
                     sleep(0.5)
-                    Colors.blue(f"\n[+] Alias added to {bashrc_path}")
+                    Colors.blue(f"[+] Alias added to {bashrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
                         colr().hex("#ff0000", "up"),
@@ -389,7 +395,7 @@ class Base:
 
                 elif one_string in file_contents:
                     sleep(0.5)
-                    Colors.blue(f"\n[+] Alias added to {bashrc_path}")
+                    Colors.blue(f"[+] Alias added to {bashrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
                         colr().hex("#ff0000", "up"),
@@ -406,7 +412,7 @@ class Base:
                             )
                         )
                     sleep(0.5)
-                    Colors.blue(f"\n[+] Alias added to {bashrc_path}")
+                    Colors.blue(f"[+] Alias added to {bashrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
                         colr().hex("#ff0000", "up"),

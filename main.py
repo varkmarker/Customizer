@@ -109,7 +109,7 @@ class Operators:
 path1 = "items/icons/McMojave-cursors_theme.tar.xz"
 path2 = "items/icons/Mkos-Big-Sur-icon-theme.tar.xz"
 path3 = "items/usertheme/WhiteSur-Dark.tar.xz"
-app_icons = "item/icons/app_icons"
+app_icons = "items/icons/app_icons"
 movepath1 = "/usr/share/icons/"
 movepath2 = "/usr/share/themes/"
 background_img = "items/images/background.jpg"
@@ -158,7 +158,7 @@ class Base:
         sleep(0.5)
         Colors.red("")
         os.system(
-            f" sudo mv -v McMojave-cursors Mkos-Big-Sur-Panel-white Mkos-Big-Sur Mkos-Big-Sur-Night {movepath1}"
+            f" sudo mv -v McMojave-cursors Mkos-Big-Sur* {movepath1}"
         )
         sleep(0.5)
         print(

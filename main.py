@@ -183,7 +183,7 @@ class Base:
         )
         Colors.red("")
         os.system(f"sudo cp -rv {app_icons} /usr/share/")
-	sleep(0.5)
+        sleep(0.5)
     # def add_grub_image()
     #     sleep(0.5)
     #     print(

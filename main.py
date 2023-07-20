@@ -206,12 +206,12 @@ class Base:
             choice = input(
                 colr().hex(
                     "#0000ff",
-                    "\n[+] If you running this script in parrot os y or n : ",
+                    "\n[+] If you running this script in parrot os = p or kali linux = k or other = n : ",
                     rgb_mode=True,
                 )
             )
             choice = choice.lower()
-            if choice == "y":
+            if choice == "p":
                 # Set the root directory where you want to start searching
                 root_dir = "/home"
                 for root, dirs, files in os.walk(root_dir):
@@ -351,20 +351,153 @@ class Base:
                                 "#0000ff", ": is the command for run the script"
                             ),
                         )
+            elif choice == "k":
+                # Set the root directory where you want to start searching
+                root_dir = "/home"
+                for root, dirs, files in os.walk(root_dir):
+                    # Check if ".bashrc"  files exist in the current directory
+                    if ".zshrc" in files:
+                        zshrc_path = os.path.join(root, ".zshrc")
+
+                print(
+                    colr().hex(
+                        "#0000ff",
+                        "\n [+] Enter your home directory path.Use the",
+                        rgb_mode=True,
+                    ),
+                    colr().hex("#ff0000", "pwd", rgb_mode=True),
+                    colr().hex("#0000ff", "command to seeit \n [+] Eg: /home/user/"),
+                )
+                home_path = input(colr().hex("#0000ff", "\n  > ", rgb_mode=True))
+                # Checking the .bashrc file exists or not
+                if os.path.exists(home_path + ".bashrc"):
+                    one_string = "alias up='sudo /usr/bin/update/update.py'"
+                    second_string = "#alias up='sudo /usr/bin/update/update.py'"
+
+                    with open(zshrc_path, "r") as f:
+                        file_contents = f.read()
+
+                    # Check if the line is found in the file
+                    if second_string in file_contents:
+                        replace = ["alias up='sudo /usr/bin/update/update.py'"]
+
+                        with open(zshrc_path, "r") as file:
+                            alias_command = file.read()
+
+                            alias_command = alias_command.replace(
+                                "#alias up='sudo /usr/bin/update/update.py'",
+                                replace[0],
+                            )
+                        with open(zshrc_path, "w") as file:
+                            file.write("" + alias_command)
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+
+                    elif one_string in file_contents:
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+                    else:
+                        with open(zshrc_path, "a") as file:
+                            file.write(
+                                "\n".join(
+                                    [
+                                        "#Customize alias",
+                                        "alias up='sudo /usr/bin/update/update.py'",
+                                    ]
+                                )
+                            )
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+                else:
+                    Colors.red("")
+                    os.system(f"sudo cp -v /root/.bashrc {home_path}")
+                    zshrc_path = home_path + ".bashrc"
+                    one_string = "alias up='sudo /usr/bin/update/update.py'"
+                    second_string = "#alias up='sudo /usr/bin/update/update.py'"
+
+                    with open(zshrc_path, "r") as f:
+                        file_contents = f.read()
+
+                    # Check if the line is found in the file
+                    if second_string in file_contents:
+                        replace = ["alias up='sudo /usr/bin/update/update.py'"]
+
+                        with open(zshrc_path, "r") as file:
+                            alias_command = file.read()
+
+                            alias_command = alias_command.replace(
+                                "#alias up='sudo /usr/bin/update/update.py'",
+                                replace[0],
+                            )
+                        with open(zshrc_path, "w") as file:
+                            file.write("" + alias_command)
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+
+                    elif one_string in file_contents:
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+                    else:
+                        with open(zshrc_path, "a") as file:
+                            file.write(
+                                "\n".join(
+                                    [
+                                        "#Customize alias",
+                                        "alias up='sudo /usr/bin/update/update.py'",
+                                    ]
+                                )
+                            )
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
 
             elif choice == "n":
                 # Set the root directory where you want to start searching
                 root_dir = "/home"
                 for root, dirs, files in os.walk(root_dir):
-                    # Check if any directory contains "Pictures" in its name
-                    if "Pictures" in dirs:
-                        # Get the absolute path of the "Pictures" directory
-                        pictures_dir = os.path.join(root, "Pictures")
-
                     # Check if ".bashrc" or ".zshrc" files exist in the current directory
-                    if ".zshrc" in files:
-                        bashrc_path = os.path.join(root, ".zshrc")
-                    elif ".bashrc" in files:
+                    if ".bashrc" in files:
                         bashrc_path = os.path.join(root, ".bashrc")
                 one_string = "alias up='sudo /usr/bin/update/update.py'"
                 second_string = "#alias up='sudo /usr/bin/update/update.py'"

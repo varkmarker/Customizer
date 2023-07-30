@@ -1,6 +1,7 @@
 from colr import Colr as colr
 import os
 from time import sleep
+import shutil
 
 
 class Colors:
@@ -352,65 +353,145 @@ class Base:
                             ),
                         )
             elif choice == "k":
-                 # Set the root directory where you want to start searching
+                # Set the root directory where you want to start searching
                 root_dir = "/home"
                 for root, dirs, files in os.walk(root_dir):
                     # Check if ".bashrc"  files exist in the current directory
                     if ".zshrc" in files:
                         zshrc_path = os.path.join(root, ".zshrc")
-                       
-                one_string = "alias up='sudo /usr/bin/update/update.py'"
-                second_string = "#alias up='sudo /usr/bin/update/update.py'"
 
-                with open(zshrc_path, "r") as f:
-                    file_contents = f.read()
+                print(
+                    colr().hex(
+                        "#0000ff",
+                        "\n [+] Enter your home directory path.Use the",
+                        rgb_mode=True,
+                    ),
+                    colr().hex("#ff0000", "pwd", rgb_mode=True),
+                    colr().hex("#0000ff", "command to seeit \n [+] Eg: /home/user/"),
+                )
+                home_path = input(colr().hex("#0000ff", "\n  > ", rgb_mode=True))
+                # Checking the .bashrc file exists or not
+                if os.path.exists(home_path + ".bashrc"):
+                    one_string = "alias up='sudo /usr/bin/update/update.py'"
+                    second_string = "#alias up='sudo /usr/bin/update/update.py'"
 
-                # Check if the line is found in the file
-                if second_string in file_contents:
-                    replace = ["alias up='sudo /usr/bin/update/update.py'"]
+                    with open(zshrc_path, "r") as f:
+                        file_contents = f.read()
 
-                    with open(zshrc_path, "r") as file:
-                        alias_command = file.read()
+                    # Check if the line is found in the file
+                    if second_string in file_contents:
+                        replace = ["alias up='sudo /usr/bin/update/update.py'"]
 
-                        alias_command = alias_command.replace(
-                            "#alias up='sudo /usr/bin/update/update.py'",
-                            replace[0],
-                        )
-                    with open(zshrc_path, "w") as file:
-                        file.write("" + alias_command)
-                    sleep(0.5)
-                    Colors.blue(f"[+] Alias added to {zshrc_path}")
-                    print(
-                        colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
-                        colr().hex("#0000ff", ": is the command for run the script"),
-                    )
+                        with open(zshrc_path, "r") as file:
+                            alias_command = file.read()
 
-                elif one_string in file_contents:
-                    sleep(0.5)
-                    Colors.blue(f"[+] Alias added to {zshrc_path}")
-                    print(
-                        colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
-                        colr().hex("#0000ff", ": is the command for run the script"),
-                    )
-                else:
-                    with open(zshrc_path, "a") as file:
-                        file.write(
-                            "\n".join(
-                                [
-                                    "#Customize alias",
-                                    "alias up='sudo /usr/bin/update/update.py'",
-                                ]
+                            alias_command = alias_command.replace(
+                                "#alias up='sudo /usr/bin/update/update.py'",
+                                replace[0],
                             )
+                        with open(zshrc_path, "w") as file:
+                            file.write("" + alias_command)
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
                         )
-                    sleep(0.5)
-                    Colors.blue(f"[+] Alias added to {zshrc_path}")
-                    print(
-                        colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
-                        colr().hex("#0000ff", ": is the command for run the script"),
-                    )
+
+                    elif one_string in file_contents:
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+                    else:
+                        with open(zshrc_path, "a") as file:
+                            file.write(
+                                "\n".join(
+                                    [
+                                        "#Customize alias",
+                                        "alias up='sudo /usr/bin/update/update.py'",
+                                    ]
+                                )
+                            )
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+                else:
+                    Colors.red("")
+                    os.system(f"sudo cp -v /root/.bashrc {home_path}")
+                    zshrc_path = home_path + ".bashrc"
+                    one_string = "alias up='sudo /usr/bin/update/update.py'"
+                    second_string = "#alias up='sudo /usr/bin/update/update.py'"
+
+                    with open(zshrc_path, "r") as f:
+                        file_contents = f.read()
+
+                    # Check if the line is found in the file
+                    if second_string in file_contents:
+                        replace = ["alias up='sudo /usr/bin/update/update.py'"]
+
+                        with open(zshrc_path, "r") as file:
+                            alias_command = file.read()
+
+                            alias_command = alias_command.replace(
+                                "#alias up='sudo /usr/bin/update/update.py'",
+                                replace[0],
+                            )
+                        with open(zshrc_path, "w") as file:
+                            file.write("" + alias_command)
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+
+                    elif one_string in file_contents:
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
+                    else:
+                        with open(zshrc_path, "a") as file:
+                            file.write(
+                                "\n".join(
+                                    [
+                                        "#Customize alias",
+                                        "alias up='sudo /usr/bin/update/update.py'",
+                                    ]
+                                )
+                            )
+                        sleep(0.5)
+                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        print(
+                            colr().hex("#0000ff", "[+]"),
+                            colr().hex("#ff0000", "up"),
+                            colr().hex(
+                                "#0000ff", ": is the command for run the script"
+                            ),
+                        )
 
             elif choice == "n":
                 # Set the root directory where you want to start searching
@@ -580,6 +661,212 @@ class Base:
                 sudo_su_solution()
             elif choice == "n" or choice == "no":
                 Colors.blue("\nOk do it later")
+
+        def firmware_error():
+            def search_and_copy_missing_files(
+                source_dir, destination_dir, files_to_search
+            ):
+                sleep(0.5)
+                Colors.blue(
+                    "\n [+] Search the file that exist or not to the /usr/lib/firmware/i915 folder. "
+                )
+                missing_files = []
+                for file_name in files_to_search:
+                    destination_path = os.path.join(destination_dir, file_name)
+                    if not os.path.exists(destination_path):
+                        missing_files.append(file_name)
+
+                if not missing_files:
+                    Colors.sky_blue(
+                        f"\n [+] All files already exist in the {destination_dir}."
+                    )
+                    sleep(0.5)
+                    Colors.sky_blue("\n [+] Updating Initramfs")
+                    Colors.red("")
+                    os.system("sudo update-initramfs -c -k all ")
+
+                else:
+                    for file_name in missing_files:
+                        copy_missing_file(source_dir, destination_dir, file_name)
+                    sleep(0.5)
+                    Colors.sky_blue("\n [+] Updating Initramfs")
+                    Colors.red("")
+                    os.system("sudo update-initramfs -c -k all ")
+
+            def copy_missing_file(source_dir, destination_dir, file_name):
+                source_path = os.path.join(source_dir, file_name)
+                destination_path = os.path.join(destination_dir, file_name)
+
+                if not os.path.exists(destination_path):
+                    shutil.copy(source_path, destination_dir)
+                    Colors.red(
+                        f"\n [+] Copied {file_name} from {source_dir} to {destination_dir}"
+                    )
+
+            # search the files if it already download in the items/firmware folder
+            def search_files():
+                sleep(0.5)
+                Colors.blue(
+                    "\n [+] Search the file that Download or not to the items/firmware folder. "
+                )
+                checking_dir = "items/firmware"
+                source_directory = "items/firmware"
+                destination_directory = "/usr/lib/firmware/i915"
+                files_to_search = [
+                    "adlp_dmc.bin",
+                    "adlp_dmc_ver2_09.bin",
+                    "adlp_dmc_ver2_10.bin",
+                    "adlp_dmc_ver2_12.bin",
+                    "adlp_dmc_ver2_14.bin",
+                    "adlp_dmc_ver2_16.bin",
+                    "adlp_guc_62.0.3.bin",
+                    "adlp_guc_69.0.3.bin",
+                    "adlp_guc_70.1.1.bin",
+                    "adlp_guc_70.bin",
+                    "adls_dmc_ver2_01.bin",
+                    "bxt_dmc_ver1_07.bin",
+                    "bxt_guc_32.0.3.bin",
+                    "bxt_guc_33.0.0.bin",
+                    "bxt_guc_49.0.1.bin",
+                    "bxt_guc_62.0.0.bin",
+                    "bxt_guc_69.0.3.bin",
+                    "bxt_guc_70.1.1.bin",
+                    "bxt_guc_ver8_7.bin",
+                    "bxt_guc_ver9_29.bin",
+                    "bxt_huc_2.0.0.bin",
+                    "bxt_huc_ver01_07_1398.bin",
+                    "bxt_huc_ver01_8_2893.bin",
+                    "cml_guc_33.0.0.bin",
+                    "cml_guc_49.0.1.bin",
+                    "cml_guc_62.0.0.bin",
+                    "cml_guc_69.0.3.bin",
+                    "cml_guc_70.1.1.bin",
+                    "cml_huc_4.0.0.bin",
+                    "cnl_dmc_ver1_06.bin",
+                    "cnl_dmc_ver1_07.bin",
+                    "dg1_dmc_ver2_02.bin",
+                    "dg1_guc_49.0.1.bin",
+                    "dg1_guc_62.0.0.bin",
+                    "dg1_guc_69.0.3.bin",
+                    "dg1_guc_70.1.1.bin",
+                    "dg1_guc_70.bin",
+                    "dg1_huc_7.7.1.bin",
+                    "dg1_huc_7.9.3.bin",
+                    "dg1_huc.bin",
+                    "dg2_dmc_ver2_06.bin",
+                    "dg2_dmc_ver2_07.bin",
+                    "dg2_dmc_ver2_08.bin",
+                    "dg2_guc_70.1.2.bin",
+                    "dg2_guc_70.4.1.bin",
+                    "dg2_guc_70.bin",
+                    "dg2_huc_gsc.bin",
+                    "ehl_guc_33.0.4.bin",
+                    "ehl_guc_49.0.1.bin",
+                    "ehl_guc_62.0.0.bin",
+                    "ehl_guc_69.0.3.bin",
+                    "ehl_guc_70.1.1.bin",
+                    "ehl_huc_9.0.0.bin",
+                    "glk_dmc_ver1_04.bin",
+                    "glk_guc_32.0.3.bin",
+                    "glk_guc_33.0.0.bin",
+                    "glk_guc_49.0.1.bin",
+                    "glk_guc_62.0.0.bin",
+                    "glk_guc_69.0.3.bin",
+                    "glk_guc_70.1.1.bin",
+                    "glk_huc_4.0.0.bin",
+                    "glk_huc_ver03_01_2893.bin",
+                    "icl_dmc_ver1_07.bin",
+                    "icl_dmc_ver1_09.bin",
+                    "icl_guc_32.0.3.bin",
+                    "icl_guc_33.0.0.bin",
+                    "icl_guc_49.0.1.bin",
+                    "icl_guc_62.0.0.bin",
+                    "icl_guc_69.0.3.bin",
+                    "icl_guc_70.1.1.bin",
+                    "icl_huc_9.0.0.bin",
+                    "icl_huc_ver8_4_3238.bin",
+                    "kbl_dmc_ver1_01.bin",
+                    "kbl_dmc_ver1_04.bin",
+                    "kbl_guc_32.0.3.bin",
+                    "kbl_guc_33.0.0.bin",
+                    "kbl_guc_49.0.1.bin",
+                    "kbl_guc_62.0.0.bin",
+                    "kbl_guc_69.0.3.bin",
+                    "kbl_guc_70.1.1.bin",
+                    "kbl_guc_ver9_14.bin",
+                    "kbl_guc_ver9_39.bin",
+                    "kbl_huc_4.0.0.bin",
+                    "kbl_huc_ver02_00_1810.bin",
+                    "mtl_dmc.bin",
+                    "mtl_dmc_ver2_10.bin",
+                    "mtl_guc_70.bin",
+                    "mtl_huc_gsc.bin",
+                    "rkl_dmc_ver2_02.bin",
+                    "rkl_dmc_ver2_03.bin",
+                    "skl_dmc_ver1_23.bin",
+                    "skl_dmc_ver1_26.bin",
+                    "skl_dmc_ver1_27.bin",
+                    "skl_guc_32.0.3.bin",
+                    "skl_guc_33.0.0.bin",
+                    "skl_guc_49.0.1.bin",
+                    "skl_guc_62.0.0.bin",
+                    "skl_guc_69.0.3.bin",
+                    "skl_guc_70.1.1.bin",
+                    "skl_guc_ver1.bin",
+                    "skl_guc_ver4.bin",
+                    "skl_guc_ver6_1.bin",
+                    "skl_guc_ver9_33.bin",
+                    "skl_huc_2.0.0.bin",
+                    "skl_huc_ver01_07_1398.bin",
+                    "tgl_dmc_ver2_04.bin",
+                    "tgl_dmc_ver2_06.bin",
+                    "tgl_dmc_ver2_08.bin",
+                    "tgl_dmc_ver2_12.bin",
+                    "tgl_guc_35.2.0.bin",
+                    "tgl_guc_49.0.1.bin",
+                    "tgl_guc_62.0.0.bin",
+                    "tgl_guc_69.0.3.bin",
+                    "tgl_guc_70.1.1.bin",
+                    "tgl_guc_70.bin",
+                    "tgl_huc_7.0.12.bin",
+                    "tgl_huc_7.0.3.bin",
+                    "tgl_huc_7.5.0.bin",
+                    "tgl_huc_7.9.3.bin",
+                    "tgl_huc.bin",
+                ]
+
+                missing_files = []
+                for file_name in files_to_search:
+                    destination_path = os.path.join(checking_dir, file_name)
+                    if not os.path.exists(destination_path):
+                        missing_files.append(file_name)
+
+                if not missing_files:
+                    sleep(0.5)
+                    Colors.sky_blue(
+                        f"\n [+] All files already exist in the {checking_dir}."
+                    )
+                    sleep(0.5)
+                    Colors.red("")
+                    search_and_copy_missing_files(
+                        source_directory, destination_directory, files_to_search
+                    )
+                else:
+                    sleep(0.5)
+                    Colors.blue(
+                        "\n [+] Downloading the firmware i915 to items/firmware"
+                    )
+                    sleep(0.5)
+                    Colors.red("")
+                    os.system(
+                        "wget -r -nd -e robots=no -A '*.bin' --accept-regex '/plain/' -P items/firmware https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/"
+                    )
+                    Colors.red("")
+                    search_and_copy_missing_files(
+                        source_directory, destination_directory, files_to_search
+                    )
+
+            search_files()
 
     def add_icons_update_alias():
         # call add icons to themes and icons folder

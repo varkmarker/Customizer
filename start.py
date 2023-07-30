@@ -14,7 +14,7 @@ else:
         main.Colors.sky_blue(
             " [5] icons + update alias [6] Software (eg : google chrome)"
         )
-        main.Colors.sky_blue(" [7] Exit")
+        main.Colors.sky_blue(" [7] Firmware Error       [8] Exit")
         choices = input(colr().hex("#00ccff", "\n  > ", rgb_mode=True))
 
         try:
@@ -35,6 +35,8 @@ else:
             elif choices == "6":
                 main.Base.Software.gui_software()
             elif choices == "7":
+                main.Base.Error.firmware_error()
+            elif choices == "8":
                 main.Operators.exit_author()
             else:
                 main.Operators.case_default()

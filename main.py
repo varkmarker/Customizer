@@ -357,8 +357,8 @@ class Base:
                 root_dir = "/home"
                 for root, dirs, files in os.walk(root_dir):
                     # Check if ".bashrc"  files exist in the current directory
-                    if ".zshrc" in files:
-                        zshrc_path = os.path.join(root, ".zshrc")
+                    if ".bashrc" in files:
+                        bashrc_path = os.path.join(root, ".bashrc")
 
                 print(
                     colr().hex(
@@ -375,24 +375,24 @@ class Base:
                     one_string = "alias up='sudo /usr/bin/update/update.py'"
                     second_string = "#alias up='sudo /usr/bin/update/update.py'"
 
-                    with open(zshrc_path, "r") as f:
+                    with open(bashrc_path, "r") as f:
                         file_contents = f.read()
 
                     # Check if the line is found in the file
                     if second_string in file_contents:
                         replace = ["alias up='sudo /usr/bin/update/update.py'"]
 
-                        with open(zshrc_path, "r") as file:
+                        with open(bashrc_path, "r") as file:
                             alias_command = file.read()
 
                             alias_command = alias_command.replace(
                                 "#alias up='sudo /usr/bin/update/update.py'",
                                 replace[0],
                             )
-                        with open(zshrc_path, "w") as file:
+                        with open(bashrc_path, "w") as file:
                             file.write("" + alias_command)
                         sleep(0.5)
-                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
                             colr().hex("#ff0000", "up"),
@@ -403,7 +403,7 @@ class Base:
 
                     elif one_string in file_contents:
                         sleep(0.5)
-                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
                             colr().hex("#ff0000", "up"),
@@ -412,7 +412,7 @@ class Base:
                             ),
                         )
                     else:
-                        with open(zshrc_path, "a") as file:
+                        with open(bashrc_path, "a") as file:
                             file.write(
                                 "\n".join(
                                     [
@@ -422,7 +422,7 @@ class Base:
                                 )
                             )
                         sleep(0.5)
-                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
                             colr().hex("#ff0000", "up"),
@@ -433,28 +433,28 @@ class Base:
                 else:
                     Colors.red("")
                     os.system(f"sudo cp -v /root/.bashrc {home_path}")
-                    zshrc_path = home_path + ".bashrc"
+                    bashrc_path = home_path + ".bashrc"
                     one_string = "alias up='sudo /usr/bin/update/update.py'"
                     second_string = "#alias up='sudo /usr/bin/update/update.py'"
 
-                    with open(zshrc_path, "r") as f:
+                    with open(bashrc_path, "r") as f:
                         file_contents = f.read()
 
                     # Check if the line is found in the file
                     if second_string in file_contents:
                         replace = ["alias up='sudo /usr/bin/update/update.py'"]
 
-                        with open(zshrc_path, "r") as file:
+                        with open(bashrc_path, "r") as file:
                             alias_command = file.read()
 
                             alias_command = alias_command.replace(
                                 "#alias up='sudo /usr/bin/update/update.py'",
                                 replace[0],
                             )
-                        with open(zshrc_path, "w") as file:
+                        with open(bashrc_path, "w") as file:
                             file.write("" + alias_command)
                         sleep(0.5)
-                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
                             colr().hex("#ff0000", "up"),
@@ -465,7 +465,7 @@ class Base:
 
                     elif one_string in file_contents:
                         sleep(0.5)
-                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
                             colr().hex("#ff0000", "up"),
@@ -474,7 +474,7 @@ class Base:
                             ),
                         )
                     else:
-                        with open(zshrc_path, "a") as file:
+                        with open(bashrc_path, "a") as file:
                             file.write(
                                 "\n".join(
                                     [
@@ -484,7 +484,7 @@ class Base:
                                 )
                             )
                         sleep(0.5)
-                        Colors.blue(f"\n[+] Alias added to {zshrc_path}")
+                        Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
                             colr().hex("#ff0000", "up"),

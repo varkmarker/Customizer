@@ -13,7 +13,7 @@ $  try this if above doesn't work
     pip install -r requirments.txt -t . 
 $ RUN
        
-        sudo python3 start.py
+    sudo python3 start.py
 # Oneline CMD
 
   $ Below is the pip install -r requirements.txt command

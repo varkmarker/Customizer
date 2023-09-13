@@ -359,7 +359,6 @@ class Base:
                     # Check if ".bashrc"  files exist in the current directory
                     if ".zshrc" in files:
                         zshrc_path = os.path.join(root, ".zshrc")
-
                 one_string = "alias up='sudo /usr/bin/update/update.py'"
                 second_string = "#alias up='sudo /usr/bin/update/update.py'"
 

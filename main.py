@@ -127,61 +127,75 @@ for root, dirs, files in os.walk(root_dir):
 
 class Base:
     def add_icons_dir():
+        print(
+            colr().hex(
+                "#0000ff",
+                "\n [+] Enter you user name you give [ Eg: kali (",
+                rgb_mode=True,
+            ),
+            colr().hex(
+                "#ff0000",
+                "no need of '/'",
+                rgb_mode=True,
+            ),
+            colr().hex(
+                "#0000ff",
+                ") ]:",
+                rgb_mode=True,
+            ),
+        )
+        path_dir = input(
+            colr().hex(
+                "#0000ff",
+                "\n  >",
+                rgb_mode=True,
+            )
+        )
         sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Extrating McMojave-cursors\n", rgb_mode=True),
         )
-        sleep(0.5)
         Colors.red("")
         os.system(f"tar -xvf {path1} ")
-        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Extrating Mkos-Big-Sur-icon\n", rgb_mode=True),
         )
-        sleep(0.5)
         Colors.red("")
         os.system(f"tar -xvf {path2}")
-        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Extrating WhiteSur-Dark\n", rgb_mode=True),
         )
-        sleep(0.5)
         Colors.red("")
         os.system(f"tar -xvf {path3}")
-        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Icons\n", rgb_mode=True),
         )
-        sleep(0.5)
         Colors.red("")
         os.system(f" sudo mv -v McMojave-cursors Mkos-Big-Sur* {movepath1}")
-        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving UserTheme\n", rgb_mode=True),
         )
-        sleep(0.5)
         Colors.red("")
         os.system(f"sudo mv -v WhiteSur-Dark {movepath2}")
-        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Background Images\n", rgb_mode=True),
         )
-        sleep(0.5)
         Colors.red("")
         os.system(f" sudo cp -v {background_img} {pictures_dir}")
-        sleep(0.5)
         print(
             colr().hex("#0000ff", "\n[+]", rgb_mode=True),
             colr().hex("#6666ff", " Moving Additional Icons\n", rgb_mode=True),
         )
         Colors.red("")
-        os.system(f"sudo cp -rv {app_icons} /usr/share/")
+        os.system(
+            f"mkdir /home/{path_dir}/.Icons && sudo cp -rv {app_icons} /home/{path_dir}/.Icons/"
+        )
         sleep(0.5)
 
     # def add_grub_image()

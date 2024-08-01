@@ -246,21 +246,21 @@ class Base:
                 home_path = input(colr().hex("#0000ff", "\n  > ", rgb_mode=True))
                 # Checking the .bashrc file exists or not
                 if os.path.exists(home_path + ".bashrc"):
-                    one_string = "alias up='sudo /usr/bin/update/update.py'"
-                    second_string = "#alias up='sudo /usr/bin/update/update.py'"
+                    one_string = "alias update='sudo /usr/bin/update/update.py'"
+                    second_string = "#alias update='sudo /usr/bin/update/update.py'"
 
                     with open(bashrc_path, "r") as f:
                         file_contents = f.read()
 
                     # Check if the line is found in the file
                     if second_string in file_contents:
-                        replace = ["alias up='sudo /usr/bin/update/update.py'"]
+                        replace = ["alias update='sudo /usr/bin/update/update.py'"]
 
                         with open(bashrc_path, "r") as file:
                             alias_command = file.read()
 
                             alias_command = alias_command.replace(
-                                "#alias up='sudo /usr/bin/update/update.py'",
+                                "#alias update='sudo /usr/bin/update/update.py'",
                                 replace[0],
                             )
                         with open(bashrc_path, "w") as file:
@@ -269,7 +269,7 @@ class Base:
                         Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
-                            colr().hex("#ff0000", "up"),
+                            colr().hex("#ff0000", "update"),
                             colr().hex(
                                 "#0000ff", ": is the command for run the script"
                             ),
@@ -280,7 +280,7 @@ class Base:
                         Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
-                            colr().hex("#ff0000", "up"),
+                            colr().hex("#ff0000", "update"),
                             colr().hex(
                                 "#0000ff", ": is the command for run the script"
                             ),
@@ -291,7 +291,7 @@ class Base:
                                 "\n".join(
                                     [
                                         "#Customize alias",
-                                        "alias up='sudo /usr/bin/update/update.py'",
+                                        "alias update='sudo /usr/bin/update/update.py'",
                                     ]
                                 )
                             )
@@ -299,7 +299,7 @@ class Base:
                         Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
-                            colr().hex("#ff0000", "up"),
+                            colr().hex("#ff0000", "update"),
                             colr().hex(
                                 "#0000ff", ": is the command for run the script"
                             ),
@@ -308,21 +308,21 @@ class Base:
                     Colors.red("")
                     os.system(f"sudo cp -v /root/.bashrc {home_path}")
                     bashrc_path = home_path + ".bashrc"
-                    one_string = "alias up='sudo /usr/bin/update/update.py'"
-                    second_string = "#alias up='sudo /usr/bin/update/update.py'"
+                    one_string = "alias update='sudo /usr/bin/update/update.py'"
+                    second_string = "#alias update='sudo /usr/bin/update/update.py'"
 
                     with open(bashrc_path, "r") as f:
                         file_contents = f.read()
 
                     # Check if the line is found in the file
                     if second_string in file_contents:
-                        replace = ["alias up='sudo /usr/bin/update/update.py'"]
+                        replace = ["alias update='sudo /usr/bin/update/update.py'"]
 
                         with open(bashrc_path, "r") as file:
                             alias_command = file.read()
 
                             alias_command = alias_command.replace(
-                                "#alias up='sudo /usr/bin/update/update.py'",
+                                "#alias update='sudo /usr/bin/update/update.py'",
                                 replace[0],
                             )
                         with open(bashrc_path, "w") as file:
@@ -331,7 +331,7 @@ class Base:
                         Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
-                            colr().hex("#ff0000", "up"),
+                            colr().hex("#ff0000", "update"),
                             colr().hex(
                                 "#0000ff", ": is the command for run the script"
                             ),
@@ -342,7 +342,7 @@ class Base:
                         Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
-                            colr().hex("#ff0000", "up"),
+                            colr().hex("#ff0000", "update"),
                             colr().hex(
                                 "#0000ff", ": is the command for run the script"
                             ),
@@ -353,7 +353,7 @@ class Base:
                                 "\n".join(
                                     [
                                         "#Customize alias",
-                                        "alias up='sudo /usr/bin/update/update.py'",
+                                        "alias update='sudo /usr/bin/update/update.py'",
                                     ]
                                 )
                             )
@@ -361,7 +361,7 @@ class Base:
                         Colors.blue(f"\n[+] Alias added to {bashrc_path}")
                         print(
                             colr().hex("#0000ff", "[+]"),
-                            colr().hex("#ff0000", "up"),
+                            colr().hex("#ff0000", "update"),
                             colr().hex(
                                 "#0000ff", ": is the command for run the script"
                             ),
@@ -373,21 +373,21 @@ class Base:
                     # Check if ".bashrc"  files exist in the current directory
                     if ".zshrc" in files:
                         zshrc_path = os.path.join(root, ".zshrc")
-                one_string = "alias up='sudo /usr/bin/update/update.py'"
-                second_string = "#alias up='sudo /usr/bin/update/update.py'"
+                one_string = "alias update='sudo /usr/bin/update/update.py'"
+                second_string = "#alias update='sudo /usr/bin/update/update.py'"
 
                 with open(zshrc_path, "r") as f:
                     file_contents = f.read()
 
                 # Check if the line is found in the file
                 if second_string in file_contents:
-                    replace = ["alias up='sudo /usr/bin/update/update.py'"]
+                    replace = ["alias update='sudo /usr/bin/update/update.py'"]
 
                     with open(zshrc_path, "r") as file:
                         alias_command = file.read()
 
                         alias_command = alias_command.replace(
-                            "#alias up='sudo /usr/bin/update/update.py'",
+                            "#alias update='sudo /usr/bin/update/update.py'",
                             replace[0],
                         )
                     with open(zshrc_path, "w") as file:
@@ -396,7 +396,7 @@ class Base:
                     Colors.blue(f"\n[+] Alias added to {zshrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
+                        colr().hex("#ff0000", "update"),
                         colr().hex("#0000ff", ": is the command for run the script"),
                     )
 
@@ -405,7 +405,7 @@ class Base:
                     Colors.blue(f"\n[+] Alias added to {zshrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
+                        colr().hex("#ff0000", "update"),
                         colr().hex("#0000ff", ": is the command for run the script"),
                     )
                 else:
@@ -414,7 +414,7 @@ class Base:
                             "\n".join(
                                 [
                                     "#Customize alias",
-                                    "alias up='sudo /usr/bin/update/update.py'",
+                                    "alias update='sudo /usr/bin/update/update.py'",
                                 ]
                             )
                         )
@@ -422,7 +422,7 @@ class Base:
                     Colors.blue(f"\n[+] Alias added to {zshrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
+                        colr().hex("#ff0000", "update"),
                         colr().hex("#0000ff", ": is the command for run the script"),
                     )
 
@@ -433,21 +433,21 @@ class Base:
                     # Check if ".bashrc" or ".zshrc" files exist in the current directory
                     if ".bashrc" in files:
                         bashrc_path = os.path.join(root, ".bashrc")
-                one_string = "alias up='sudo /usr/bin/update/update.py'"
-                second_string = "#alias up='sudo /usr/bin/update/update.py'"
+                one_string = "alias update='sudo /usr/bin/update/update.py'"
+                second_string = "#alias update='sudo /usr/bin/update/update.py'"
 
                 with open(bashrc_path, "r") as f:
                     file_contents = f.read()
 
                 # Check if the line is found in the file
                 if second_string in file_contents:
-                    replace = ["alias up='sudo /usr/bin/update/update.py'"]
+                    replace = ["alias update='sudo /usr/bin/update/update.py'"]
 
                     with open(bashrc_path, "r") as file:
                         alias_command = file.read()
 
                         alias_command = alias_command.replace(
-                            "#alias up='sudo /usr/bin/update/update.py'",
+                            "#alias update='sudo /usr/bin/update/update.py'",
                             replace[0],
                         )
                     with open(bashrc_path, "w") as file:
@@ -456,7 +456,7 @@ class Base:
                     Colors.blue(f"[+] Alias added to {bashrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
+                        colr().hex("#ff0000", "update"),
                         colr().hex("#0000ff", ": is the command for run the script"),
                     )
 
@@ -465,7 +465,7 @@ class Base:
                     Colors.blue(f"[+] Alias added to {bashrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
+                        colr().hex("#ff0000", "update"),
                         colr().hex("#0000ff", ": is the command for run the script"),
                     )
                 else:
@@ -474,7 +474,7 @@ class Base:
                             "\n".join(
                                 [
                                     "#Customize alias",
-                                    "alias up='sudo /usr/bin/update/update.py'",
+                                    "alias update='sudo /usr/bin/update/update.py'",
                                 ]
                             )
                         )
@@ -482,7 +482,7 @@ class Base:
                     Colors.blue(f"[+] Alias added to {bashrc_path}")
                     print(
                         colr().hex("#0000ff", "[+]"),
-                        colr().hex("#ff0000", "up"),
+                        colr().hex("#ff0000", "update"),
                         colr().hex("#0000ff", ": is the command for run the script"),
                     )
             else:

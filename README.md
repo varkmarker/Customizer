@@ -19,8 +19,8 @@ $ RUN
 # If you get an colr error or typeing.io error
   please follow the step 
   
-  step 1 : <pre>pip install typing -t .</pre>
+  step 1 : <pre><code>pip install typing -t .</code></pre>
 
-  step 2 : Customizer/colr/colr.py # location of the file
+  step 2 : Customizer/colr/colr.py # location of the file to edit
   
   step 3 : change the line in colr.py 52  " from typing.io import IO" TO "from typing import IO"

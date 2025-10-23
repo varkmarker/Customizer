@@ -15,3 +15,12 @@ $ RUN
     git clone https://github.com/varkmarker/Customizer.git && cd Customizer && pip install -r requirements.txt -t . && sudo python3 start.py
 # neline CMD to cd to Customizer and run
     cd Customizer && sudo python3 start.py
+
+# If you get an colr error or typeing.io error
+  please follow the step 
+  
+  step 1 : <pre>pip install typing -t .</pre>
+
+  step 2 : Customizer/colr/colr.py # location of the file
+  
+  step 3 : change the line in colr.py 52  " from typing.io import IO" TO "from typing import IO"
